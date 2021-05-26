@@ -1,5 +1,5 @@
-#include<bits/stdc++.h>
-#include"dzial.h"
+#include <bits/stdc++.h>
+#include "section.h"
 using namespace std;
 
 Section::Section(string nameIN, vector<string> vinylIN)

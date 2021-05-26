@@ -1,5 +1,5 @@
 #include <iostream>
-#include "sprzedawca.h"
+#include "seller.h"
 #include <cstdlib>
 
 using namespace std;

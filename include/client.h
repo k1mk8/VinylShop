@@ -1,4 +1,4 @@
-#ifndef CLIENT_H
+// #ifndef CLIENT_H
 #define CLIENT_H
 
 #include<string>
@@ -8,28 +8,28 @@
 class Client
 {
 private:
-    std::string m_firstName;
-    std::string m_lastName;
-    std::string m_favouriteGenre;
-    std::string m_favouriteArtist;
-    std::vector<std::pair<std::string, int> > shopping_list; // zmienilem na liste tego, co chce kupic klient
+    std::string m_firstName; // imie klienta
+    std::string m_lastName; // nazwisko klienta
+    std::string m_favouriteGenre; // ulubiony gatuenk
+    std::string m_favouriteArtist; // ulubiony artysta
+    std::vector<std::pair<std::string, int> > shopping_list; // lista zakupow
 public:
-    Client(std::string firstName, std::string lastName, std::string cardNumber, std::string favouriteGenre, std::string favouriteArtist);
-    Client(const Client&);
-    void set_firstName(std::string firstName);
-    void set_lastName(std::string lastName);
-    void set_favouriteGenre(std::string favouriteGenre);
-    void set_favouriteArtist(std::string favouriteArtist);
-    std::string get_firstName();
-    std::string get_lastName();
-    std::string get_favouriteGenre();
-    std::string get_favouriteArtist();
-    std::vector<std::pair<std::string, int> > get_shopping_list();
-    void print_shoppingCart();
-    friend std::ostream& operator<<(std::ostream& os, Client& c);
-    friend bool operator==(Client& l, Client& r);
-    friend bool operator!=(Client& l, Client& r);
+    Client(std::string firstName, std::string lastName, std::string cardNumber, std::string favouriteGenre, std::string favouriteArtist); // konstruktor klienta
+    Client(const Client&); // konstruktor kopiujacy
+    void set_firstName(std::string firstName); // setter imienia
+    void set_lastName(std::string lastName); // setter nazwiska
+    void set_favouriteGenre(std::string favouriteGenre); // setter ulubionego gatunku
+    void set_favouriteArtist(std::string favouriteArtist); // setter ulubionego artysty
+    std::string get_firstName(); // getter imienia
+    std::string get_lastName(); // getter nazwiska
+    std::string get_favouriteGenre(); // getter ulubionego gatunku
+    std::string get_favouriteArtist(); // getter ulubionego artsty
+    std::vector<std::pair<std::string, int> > get_shopping_list(); // getter listy zakupow
+    void print_shopping_list(); // wyswietla liste zakupow klienta
+    friend std::ostream& operator<<(std::ostream& os, Client& c); // przeciazenie operatora <<
+    friend bool operator==(Client& l, Client& r); // przeciazenie operatora ==
+    friend bool operator!=(Client& l, Client& r); // przeciazenie operatora !=
     Client& operator=(const Client& c);
 };
 
-#endif
+// ##endif
