@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
 #include "section.h"
+#include "vinyl.h"
 using namespace std;
 
-Section::Section(string nameIN, vector<string> vinylIN)
+Section::Section(string nameIN, vector<Vinyl> vinylIN)
 {
     name = nameIN;
     vinyl = vinylIN;
@@ -13,14 +14,15 @@ Section::Section(const Section& obj)
     vinyl = obj.vinyl;
 }
 string Section::getName() {return name;}
-vector<string> Section::getVinyl() {return vinyl;}
+vector<Vinyl> Section::getVinyl() {return vinyl;}
 vector<pair <string, Section> > list_of_sections;
 void Section::setName(string nameIN) {name=nameIN;}
-void Section::setVinyl(vector<string> vinylIN) {vinyl = vinylIN;}
+void Section::setVinyl(vector<Vinyl> vinylIN) {vinyl = vinylIN;}
+void Section::addVinyl(Vinyl vinylIN) {vinyl.push_back(vinylIN);}
 ostream& operator<<(ostream& os, Section& obj)
 {
     os << "Nazwa: " << obj.getName() << "\n";
-    vector<string> vinyl = obj.getVinyl();
+    vector<Vinyl> vinyl = obj.getVinyl();
     os << "Płyty zawierające się w dziale:\n";
     for(auto it = vinyl.begin(); it != vinyl.end(); it++)os << int(it - vinyl.begin()) + 1 << ". '" << *it << "'\n";
     return os;

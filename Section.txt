@@ -1,0 +1,10 @@
+Rock;
+Alternative;
+Indie;
+Hip-hop;
+Blues;
+Electronic;
+Jazz;
+Classic;
+Pop;
+Reggae;

@@ -14,6 +14,7 @@ class Seller
     string login; // inicjuje login pracownika
     string password; // inicjuje haslo pracownika
     vector <string> thematic_sections; // inicjuje wektor z działaniami 
+    bool status; // zajetosc pracownika 
 public:
     Seller(string name1, string surname1, string login, string password, string per_level, vector<string> them_sect); // konstruktor
     Seller(const Seller& sel); // konstruktor kopiujacy
@@ -22,6 +23,7 @@ public:
     string Get_permission_level(); // getter dostepu
     string Get_login(); // getter loginu
     string Get_password(); // getter hasla
+    bool Get_status(); // getter statusu
     vector <string> Get_thematic_sections(); // getter sekcji
     void Set_name(string name1); // setter imienia
     void Set_surname(string surname1); // setter nazwiska
@@ -29,6 +31,7 @@ public:
     void Set_password(string password1); // setter pensji
     void Set_permission_level(string perm_lvl); // setter dostepu
     void Set_thematic_sections(string section); // setter sekcji
+    void Set_status(bool status1); // setter statusu
     friend ostream& operator<<(ostream& os, Seller& sel); // wypisywanie całego obiektu
     friend bool operator!=(Seller& sel, Seller& sel1); // przeciazenie operatora !=
     friend bool operator==(Seller& sel, Seller& sel1); // przeciazenie operatora ==
