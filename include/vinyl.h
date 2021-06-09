@@ -20,13 +20,13 @@ public:
     void set_quantity(int quantity1); // setter ilosci na stanie
     void set_price_category(string price_categ); // setter kategorii cenowej
     void set_genre(string genre1); // setter gatunku
-    string get_name(); // getter nazwy
-    string get_artist(); // getter wykonawcy
-    int get_quantity(); // getter ilosci
-    string get_price_category(); // getter kategorii cenowej
-    string get_genre(); // getter gatunku
+    string get_name() const; // getter nazwy
+    string get_artist() const; // getter wykonawcy
+    int get_quantity() const; // getter ilosci
+    string get_price_category() const; // getter kategorii cenowej
+    string get_genre() const; // getter gatunku
     friend ostream& operator<<(ostream& os, Vinyl& V); // przeciazenie operatora ==
-    friend bool operator==(Vinyl& V1, Vinyl& V2); // przeciazenie operatora ==
+    friend bool operator==(const Vinyl& V1, const Vinyl& V2); // przeciazenie operatora ==
     friend bool operator!=(Vinyl& V1, Vinyl& V2); // przeciazenie operatora != 
     Vinyl& operator=(const Vinyl& V);
 };

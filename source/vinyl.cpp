@@ -24,10 +24,11 @@ void Vinyl::set_artist(string artist1) {artist = artist1;}
 void Vinyl::set_quantity(int quantity1) {quantity = quantity1;}
 void Vinyl::set_price_category(string price_categ) {price_category = price_categ;}
 void Vinyl::set_genre(string genre1) {genre = genre1;}
-string Vinyl::get_name() {return name;}
-string Vinyl::get_artist() {return artist;}
-int Vinyl::get_quantity() {return quantity;}
-string Vinyl::get_price_category() {return price_category;}
+string Vinyl::get_name() const {return name;}
+string Vinyl::get_artist() const {return artist;}
+int Vinyl::get_quantity() const {return quantity;}
+string Vinyl::get_price_category() const {return price_category;}
+string Vinyl::get_genre() const {return genre;}
 ostream& operator<<(ostream& os, Vinyl& V)
 {
     string name = V.get_name();
@@ -38,7 +39,7 @@ ostream& operator<<(ostream& os, Vinyl& V)
     os << name << " " << artist << " " << quantity << " " << price_category;
     return os;
 }
-bool operator==(Vinyl& V1, Vinyl& V2)
+bool operator==(const Vinyl& V1, const Vinyl& V2)
 {
     if(V1.get_name() == V2.get_name())
         if(V1.get_artist() == V2.get_artist())
@@ -66,4 +67,5 @@ Vinyl& Vinyl::operator=(const Vinyl& V)
     quantity = V.quantity;
     price_category = V.price_category;
     genre = V.genre;
+    return *this;
 }

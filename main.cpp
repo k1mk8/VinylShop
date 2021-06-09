@@ -9,7 +9,7 @@ void read_Vinyls()
     FILE* file;
     file = fopen("Vinyls.txt", "r");
     char letter;
-    int counter;
+    int counter = 0;
     string title, artist, price_category, quantity, genre;
     while(letter != EOF)
     {
@@ -23,7 +23,7 @@ void read_Vinyls()
                     it -> addVinyl(vinyl);
             }
             title, artist, price_category, quantity, genre = "";
-            counter %= 5;
+            counter = 0;
         }
         letter = fgetc(file);
         if(letter == ';')
@@ -74,7 +74,7 @@ void create_Sections()
 void read_Sellers()
 {
     FILE* file;
-    file = fopen("Vinyls.txt", "r");
+    file = fopen("Sellers.txt", "r");
     char letter;
     int counter;
     bool status;
