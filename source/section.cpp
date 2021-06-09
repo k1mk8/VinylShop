@@ -19,6 +19,13 @@ vector<pair <string, Section> > list_of_sections;
 void Section::setName(string nameIN) {name=nameIN;}
 void Section::setVinyl(vector<Vinyl> vinylIN) {vinyl = vinylIN;}
 void Section::addVinyl(Vinyl vinylIN) {vinyl.push_back(vinylIN);}
+Vinyl Section::getVinylInSection(string name){
+    for(int i = 0; i < vinyl.size(); i++){
+        if(vinyl[i].get_name() == name){
+            return vinyl[i];
+        }
+    }
+}
 ostream& operator<<(ostream& os, Section& obj)
 {
     os << "Nazwa: " << obj.getName() << "\n";

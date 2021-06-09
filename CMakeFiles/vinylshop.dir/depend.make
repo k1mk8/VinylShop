@@ -16,7 +16,9 @@ CMakeFiles/vinylshop.dir/source/section.cpp.o: include/section.h
 CMakeFiles/vinylshop.dir/source/section.cpp.o: include/vinyl.h
 
 CMakeFiles/vinylshop.dir/source/seller.cpp.o: source/seller.cpp
+CMakeFiles/vinylshop.dir/source/seller.cpp.o: include/section.h
 CMakeFiles/vinylshop.dir/source/seller.cpp.o: include/seller.h
+CMakeFiles/vinylshop.dir/source/seller.cpp.o: include/vinyl.h
 
 CMakeFiles/vinylshop.dir/source/shop.cpp.o: source/shop.cpp
 CMakeFiles/vinylshop.dir/source/shop.cpp.o: include/client.h

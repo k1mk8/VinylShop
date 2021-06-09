@@ -26,10 +26,10 @@ public:
     void add_seller(Seller S); // dodaje sprzedawce do listy
     void add_vinyl(Vinyl V); // dodaje plyte do listy
     void add_client(Client C); // dodaje klienta do listy
+    string getVinylGenre(string name); //zwraca gatunek muzyczny podanej płyty
     vector<Section> get_sections(); // zwraca wektor obiektow dzialow
     vector<Seller> get_sellers(); // zwraca wektor obiektow sprzedawcow
     vector<Vinyl> get_vinyls(); // zwraca wektor obiektow plyt
     vector<Client> get_clients(); // zwraca wektor obiektow klientow
-    int getClientsNumber(); //zwraca liczbę klientów
 };
 #endif

@@ -13,6 +13,7 @@ private:
     string price_category; // kategoria cenowa
     string genre; // gatunek muzyki
 public:
+    Vinyl();
     Vinyl(string name1, string artist1, int quantity1, string price_categ, string genre1); // konstruktor obiektu plyty
     Vinyl(const Vinyl& V); // konstruktor kopiujacy
     void set_name(string name1); // setter nazwy

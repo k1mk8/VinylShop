@@ -25,6 +25,13 @@ void Shop::add_section(Section S) {list_of_sections.push_back(S);}
 void Shop::add_seller(Seller S) {list_of_sellers.push_back(S);}
 void Shop::add_vinyl(Vinyl V) {list_of_vinyls.push_back(V);}
 void Shop::add_client(Client C) {list_of_clients.push_back(C);}
+string Shop::getVinylGenre(string name){
+    for (int i = 0; i < list_of_vinyls.size(); i++){
+        if(name == list_of_vinyls[i].get_name()){
+            return list_of_vinyls[i].get_genre();
+        }
+    }
+}
 vector<Section> Shop::get_sections() {return list_of_sections;}
 vector<Seller> Shop::get_sellers() {return list_of_sellers;}
 vector<Vinyl> Shop::get_vinyls() {return list_of_vinyls;}

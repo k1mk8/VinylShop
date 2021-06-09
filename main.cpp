@@ -81,7 +81,7 @@ void read_Sellers()
     int counter;
     bool status;
     string forname, name, login, password, permmission_level, thematic_sections_str;
-    vector<string> thematic_sections;
+    vector<Section> thematic_sections;
     while(letter != EOF)
     {
         if(counter == 6)
@@ -91,7 +91,12 @@ void read_Sellers()
             {
                 if(thematic_sections_str[i] == ',')
                 {
-                    thematic_sections.push_back(help);
+                    for(int j = 0; j < shop.get_sections().size(); j++){
+                        if(shop.get_sections()[j].getName() == help){
+                            thematic_sections.push_back(shop.get_sections()[j]);
+                            break;
+                        }
+                    }
                     help = "";
                     continue;
                 }
@@ -99,7 +104,7 @@ void read_Sellers()
             }
             Seller seller(forname, name, login, password, permmission_level, thematic_sections);
             shop.add_seller(seller);
-            forname = name = login = password = permmission_level = "";
+            forname = name = login = password = permmission_level = thematic_sections_str = "";
             thematic_sections.clear();
             counter %= 6;
         }
@@ -174,7 +179,41 @@ int main()
                 client.addToShoppingList(shop.get_vinyls()[number1].get_name(), number2);
             }*/
             shop.add_client(client);
-            cout << client << endl;
+            //cout << client << endl;
+        }
+        else{
+            vector<Client> clients = shop.get_clients();
+            for(int i = 0; i < clients.size(); i++){
+                if(clients[i].get_shopping_list().size() == 0) continue;
+                for(auto it = clients[i].get_shopping_list().begin(); it != clients[i].get_shopping_list().end(); it++){
+                    string name = it->first;
+                    int number = it->second;
+                    string genre = shop.getVinylGenre(it->first);
+                    Seller seller;
+                    Vinyl vinyl;
+                    for(int j = 0; j < shop.get_sellers().size(); j++){
+                        seller = shop.get_sellers()[j];
+                        for(int k = 0; k < seller.Get_thematic_sections().size(); k++){
+                            if(seller.Get_thematic_sections()[k].getName() == genre){
+                                seller.Set_status(false);
+                                vinyl = seller.getVinyl(name, genre);
+                            }
+                        }
+                    }
+                    if(number <= vinyl.get_quantity()){
+                        vinyl.set_quantity(vinyl.get_quantity() - number);
+                        cout << "Klient " << clients[i].get_firstName() << " " << clients[i].get_lastName() << "kupuje " << number << vinyl.get_name() << "z kategorii cenowej" << vinyl.get_price_category() << "od " << seller.Get_name() << endl;
+                    }
+                    else{
+                        //zamawianie
+                    }
+                }
+            }
+        }
+        char a;
+        cout << "Czy kontynuowac? (t/n)";
+        while(a != 't'){
+            cin >> a;
         }
     }
     return 0;

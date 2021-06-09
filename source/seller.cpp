@@ -1,17 +1,19 @@
 #include <iostream>
 #include "seller.h"
 #include <cstdlib>
+#include "section.h"
 
 using namespace std;
 
-Seller::Seller(string name1, string surname1, string login1, string password1, string per_level, vector<string> them_sect)
+Seller::Seller(){}
+Seller::Seller(string name1, string surname1, string login1, string password1, string per_level, vector<Section> them_sect)
 {
     name = name1; // przypisuje imie
     surname = surname1; // przypisuje nazwisko
     login = login1; // przypisuje wiek
     password = password1; // przypisuje pensja
     permission_level = per_level; // przypisuje zakres dostepu
-    thematic_sections = them_sect; // przypisuje sekcje
+    //thematic_sections = them_sect; // przypisuje sekcje
     status = 1;
 }
 
@@ -31,14 +33,21 @@ string Seller::Get_permission_level() {return permission_level;} // getter pozio
 string Seller::Get_login() {return login;} // getter loginu
 string Seller::Get_password() {return password;} // getter hasla
 bool Seller::Get_status() {return status;} // getter statusu
-vector <string> Seller::Get_thematic_sections() {return thematic_sections;} // getter obslugiwanych sekcji
+vector <Section> Seller::Get_thematic_sections() {return thematic_sections;} // getter obslugiwanych sekcji
 void Seller::Set_name(string name1) {name=name1;} // setter imienia
 void Seller::Set_surname(string surname1) {surname=surname1;} // setter nazwiska
 void Seller::Set_login(string login1) {login=login1;} // setter loginu
 void Seller::Set_password(string password1) {password=password1;} // setter hasla
 void Seller::Set_permission_level(string perm_lvl) {permission_level=perm_lvl;} //setter poziomu dostepu
-void Seller::Set_thematic_sections(string section) {thematic_sections.push_back(section);} // setter obslugiwaneg dzialu
+void Seller::Set_thematic_sections(Section section) {thematic_sections.push_back(section);} // setter obslugiwaneg dzialu
 void Seller::Set_status(bool status1) {status = status1;} // setter statusu
+Vinyl Seller::getVinyl(string name, string section){
+    for(int i = 0; i < thematic_sections.size(); i++){
+        if(section == thematic_sections[i].getName()){
+            return thematic_sections[i].getVinylInSection(name);
+        }
+    }
+}
 ostream& operator<<(ostream& os, Seller& sel)
 {
     os <<"Imie sprzedawcy: "<< sel.Get_name() <<"\n";
@@ -47,7 +56,7 @@ ostream& operator<<(ostream& os, Seller& sel)
     os <<"Haslo sprzedawcy: "<< sel.Get_password() <<"\n";
     os <<"Poziom uprawnien sprzedawcy: "<< sel.Get_permission_level() <<"\n";
     os <<"Obslugiwane stanowiska sprzedawcy:\n";
-    vector <string> sections = sel.Get_thematic_sections();
+    vector <Section> sections = sel.Get_thematic_sections();
     for(int i=0; i<sections.size(); i++)
     {
         os <<sections[i]<<endl;

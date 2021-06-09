@@ -3,6 +3,7 @@
 
 using namespace std;
 
+Vinyl::Vinyl(){}
 Vinyl::Vinyl(string name1, string artist1, int quantity1, string price_categ, string genre1)
 {
     name = name1;
