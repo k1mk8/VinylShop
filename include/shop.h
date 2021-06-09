@@ -30,5 +30,6 @@ public:
     vector<Seller> get_sellers(); // zwraca wektor obiektow sprzedawcow
     vector<Vinyl> get_vinyls(); // zwraca wektor obiektow plyt
     vector<Client> get_clients(); // zwraca wektor obiektow klientow
+    int getClientsNumber(); //zwraca liczbę klientów
 };
 #endif

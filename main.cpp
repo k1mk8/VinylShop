@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 #include "include/shop.h"
+#include <random>
+#include <chrono>
 
 using namespace std;
 Shop shop;
@@ -22,7 +24,7 @@ void read_Vinyls()
                 if(it -> getName() == genre)
                     it -> addVinyl(vinyl);
             }
-            title, artist, price_category, quantity, genre = "";
+            title = artist = price_category = quantity = genre = "";
             counter = 0;
         }
         letter = fgetc(file);
@@ -97,7 +99,7 @@ void read_Sellers()
             }
             Seller seller(forname, name, login, password, permmission_level, thematic_sections);
             shop.add_seller(seller);
-            forname, name, login, password, permmission_level = "";
+            forname = name = login = password = permmission_level = "";
             thematic_sections.clear();
             counter %= 6;
         }
@@ -124,11 +126,56 @@ void read_Sellers()
 }
 
 
+int checkInput(int range){//sprawdza czy wartość jest liczbą oraz czy jest mniejsza lub równa podanemu parametrowi
+    char a;
+    int x;
+    std::cin >> a;
+    if(isdigit(a)){
+        std::cin.unget();
+        std::cin >> x;
+        if(x <= range) return x;
+        else 
+        {
+            std::cout << "Nieprawidlowa wartosc!" << std::endl;
+            return -1;
+        }
+    }
+    std::cout << "Nieprawidlowa wartosc!" << std::endl;
+    return -1;//zwraca -1 gdy wartość jest niepoprawna
+}
+
+
 int main()
 {
     create_Sections();
-    read_Vinyls();
-    read_Sellers();
-    cout << shop.get_sellers()[2];
+    //read_Vinyls(); //nie działa
+    read_Sellers(); //działa, ale jakoś dziwnie (dokleja na koniec sekcje wszystkich poprzednich sprzedawców)
+    cout << "Podaj czas trwania symulacji: " << endl;
+    int timeLimit = checkInput(999);
+    cout << "Podaj liczbe klientow: " << endl;
+    int clientLimit = checkInput(999);
+    string firstNames[] = {"Adam", "Bartlomiej", "Anna", "Szymon", "Natalia", "Zuzanna", "Karol", "Jakub", "Dominika", "Piotr", "Ryszard", "Aneta", "Karolina", "Wiktoria", "Marek"};
+    string lastNames[] = {"Chmielewski", "Suraj", "Obroslak", "Zając", "Mazur", "Pelc", "Golianek", "Gil", "Baran", "Wieleba", "Bielak", "Wnuczek", "Zuń", "Malysz", "Kubica"};
+    string artists[] = {"AC/DC", "Aerosmith", "Arctic Monkeys", "Budka Suflera", "Green Day", "Linkin Park", "Metallica", "Queen", "Toto", "Mac Miller", "Eminem", "Bjork", "Mozart", "Vivaldi", "Britney Spears"};
+    string genres[] = {"Rock", "Alternative", "Indie", "Hip_hop", "Blues", "Electronic", "Jazz", "Classic", "Pop", "Reggae"};
+    unsigned seed = chrono::high_resolution_clock::now().time_since_epoch().count();
+    mt19937 generator(seed);
+    for(int time = 0; time < timeLimit; time++){
+        if(shop.get_clients().size() < clientLimit)
+        {
+            int number1 = uniform_int_distribution<int>(0, 14)(generator);
+            int number2 = uniform_int_distribution<int>(0, 14)(generator);
+            int number3 = uniform_int_distribution<int>(0, 9)(generator);
+            int number4 = uniform_int_distribution<int>(0, 14)(generator);
+            Client client = Client(firstNames[number1], lastNames[number2], genres[number3], artists[number4]);
+            /*for(int i = 0; i < 4; i++){
+                number1 = uniform_int_distribution<int>(0, 309)(generator);
+                number2 = uniform_int_distribution<int>(0, 5)(generator);
+                client.addToShoppingList(shop.get_vinyls()[number1].get_name(), number2);
+            }*/
+            shop.add_client(client);
+            cout << client << endl;
+        }
+    }
     return 0;
 }

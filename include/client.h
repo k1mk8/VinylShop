@@ -3,7 +3,7 @@
 
 #include<string>
 #include<iostream>
-#include<vector>
+#include<map>
 
 class Client
 {
@@ -12,9 +12,9 @@ private:
     std::string m_lastName; // nazwisko klienta
     std::string m_favouriteGenre; // ulubiony gatuenk
     std::string m_favouriteArtist; // ulubiony artysta
-    std::vector<std::pair<std::string, int> > shopping_list; // lista zakupow
+    std::map<std::string, int> shopping_list; // lista zakupow
 public:
-    Client(std::string firstName, std::string lastName, std::string cardNumber, std::string favouriteGenre, std::string favouriteArtist); // konstruktor klienta
+    Client(std::string firstName, std::string lastName, std::string favouriteGenre, std::string favouriteArtist); // konstruktor klienta
     Client(const Client&); // konstruktor kopiujacy
     void set_firstName(std::string firstName); // setter imienia
     void set_lastName(std::string lastName); // setter nazwiska
@@ -24,8 +24,9 @@ public:
     std::string get_lastName(); // getter nazwiska
     std::string get_favouriteGenre(); // getter ulubionego gatunku
     std::string get_favouriteArtist(); // getter ulubionego artsty
-    std::vector<std::pair<std::string, int> > get_shopping_list(); // getter listy zakupow
+    std::map<std::string, int>get_shopping_list(); // getter listy zakupow
     void print_shopping_list(); // wyswietla liste zakupow klienta
+    void addToShoppingList(std::string name, int number);
     friend std::ostream& operator<<(std::ostream& os, Client& c); // przeciazenie operatora <<
     friend bool operator==(Client& l, Client& r); // przeciazenie operatora ==
     friend bool operator!=(Client& l, Client& r); // przeciazenie operatora !=
