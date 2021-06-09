@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pkosmala/PROI
+CMAKE_SOURCE_DIR = /mnt/d/PROI_PROJect
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pkosmala/PROI
+CMAKE_BINARY_DIR = /mnt/d/PROI_PROJect
 
 # Include any dependencies generated for this target.
 include CMakeFiles/vinylshop.dir/depend.make
@@ -59,81 +59,81 @@ include CMakeFiles/vinylshop.dir/flags.make
 
 CMakeFiles/vinylshop.dir/main.cpp.o: CMakeFiles/vinylshop.dir/flags.make
 CMakeFiles/vinylshop.dir/main.cpp.o: main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pkosmala/PROI/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/vinylshop.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vinylshop.dir/main.cpp.o -c /home/pkosmala/PROI/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/PROI_PROJect/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/vinylshop.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vinylshop.dir/main.cpp.o -c /mnt/d/PROI_PROJect/main.cpp
 
 CMakeFiles/vinylshop.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vinylshop.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pkosmala/PROI/main.cpp > CMakeFiles/vinylshop.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/PROI_PROJect/main.cpp > CMakeFiles/vinylshop.dir/main.cpp.i
 
 CMakeFiles/vinylshop.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vinylshop.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pkosmala/PROI/main.cpp -o CMakeFiles/vinylshop.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/PROI_PROJect/main.cpp -o CMakeFiles/vinylshop.dir/main.cpp.s
 
 CMakeFiles/vinylshop.dir/source/client.cpp.o: CMakeFiles/vinylshop.dir/flags.make
 CMakeFiles/vinylshop.dir/source/client.cpp.o: source/client.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pkosmala/PROI/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/vinylshop.dir/source/client.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vinylshop.dir/source/client.cpp.o -c /home/pkosmala/PROI/source/client.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/PROI_PROJect/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/vinylshop.dir/source/client.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vinylshop.dir/source/client.cpp.o -c /mnt/d/PROI_PROJect/source/client.cpp
 
 CMakeFiles/vinylshop.dir/source/client.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vinylshop.dir/source/client.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pkosmala/PROI/source/client.cpp > CMakeFiles/vinylshop.dir/source/client.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/PROI_PROJect/source/client.cpp > CMakeFiles/vinylshop.dir/source/client.cpp.i
 
 CMakeFiles/vinylshop.dir/source/client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vinylshop.dir/source/client.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pkosmala/PROI/source/client.cpp -o CMakeFiles/vinylshop.dir/source/client.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/PROI_PROJect/source/client.cpp -o CMakeFiles/vinylshop.dir/source/client.cpp.s
 
 CMakeFiles/vinylshop.dir/source/section.cpp.o: CMakeFiles/vinylshop.dir/flags.make
 CMakeFiles/vinylshop.dir/source/section.cpp.o: source/section.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pkosmala/PROI/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/vinylshop.dir/source/section.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vinylshop.dir/source/section.cpp.o -c /home/pkosmala/PROI/source/section.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/PROI_PROJect/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/vinylshop.dir/source/section.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vinylshop.dir/source/section.cpp.o -c /mnt/d/PROI_PROJect/source/section.cpp
 
 CMakeFiles/vinylshop.dir/source/section.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vinylshop.dir/source/section.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pkosmala/PROI/source/section.cpp > CMakeFiles/vinylshop.dir/source/section.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/PROI_PROJect/source/section.cpp > CMakeFiles/vinylshop.dir/source/section.cpp.i
 
 CMakeFiles/vinylshop.dir/source/section.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vinylshop.dir/source/section.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pkosmala/PROI/source/section.cpp -o CMakeFiles/vinylshop.dir/source/section.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/PROI_PROJect/source/section.cpp -o CMakeFiles/vinylshop.dir/source/section.cpp.s
 
 CMakeFiles/vinylshop.dir/source/seller.cpp.o: CMakeFiles/vinylshop.dir/flags.make
 CMakeFiles/vinylshop.dir/source/seller.cpp.o: source/seller.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pkosmala/PROI/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/vinylshop.dir/source/seller.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vinylshop.dir/source/seller.cpp.o -c /home/pkosmala/PROI/source/seller.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/PROI_PROJect/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/vinylshop.dir/source/seller.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vinylshop.dir/source/seller.cpp.o -c /mnt/d/PROI_PROJect/source/seller.cpp
 
 CMakeFiles/vinylshop.dir/source/seller.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vinylshop.dir/source/seller.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pkosmala/PROI/source/seller.cpp > CMakeFiles/vinylshop.dir/source/seller.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/PROI_PROJect/source/seller.cpp > CMakeFiles/vinylshop.dir/source/seller.cpp.i
 
 CMakeFiles/vinylshop.dir/source/seller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vinylshop.dir/source/seller.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pkosmala/PROI/source/seller.cpp -o CMakeFiles/vinylshop.dir/source/seller.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/PROI_PROJect/source/seller.cpp -o CMakeFiles/vinylshop.dir/source/seller.cpp.s
 
 CMakeFiles/vinylshop.dir/source/shop.cpp.o: CMakeFiles/vinylshop.dir/flags.make
 CMakeFiles/vinylshop.dir/source/shop.cpp.o: source/shop.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pkosmala/PROI/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/vinylshop.dir/source/shop.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vinylshop.dir/source/shop.cpp.o -c /home/pkosmala/PROI/source/shop.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/PROI_PROJect/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/vinylshop.dir/source/shop.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vinylshop.dir/source/shop.cpp.o -c /mnt/d/PROI_PROJect/source/shop.cpp
 
 CMakeFiles/vinylshop.dir/source/shop.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vinylshop.dir/source/shop.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pkosmala/PROI/source/shop.cpp > CMakeFiles/vinylshop.dir/source/shop.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/PROI_PROJect/source/shop.cpp > CMakeFiles/vinylshop.dir/source/shop.cpp.i
 
 CMakeFiles/vinylshop.dir/source/shop.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vinylshop.dir/source/shop.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pkosmala/PROI/source/shop.cpp -o CMakeFiles/vinylshop.dir/source/shop.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/PROI_PROJect/source/shop.cpp -o CMakeFiles/vinylshop.dir/source/shop.cpp.s
 
 CMakeFiles/vinylshop.dir/source/vinyl.cpp.o: CMakeFiles/vinylshop.dir/flags.make
 CMakeFiles/vinylshop.dir/source/vinyl.cpp.o: source/vinyl.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pkosmala/PROI/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/vinylshop.dir/source/vinyl.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vinylshop.dir/source/vinyl.cpp.o -c /home/pkosmala/PROI/source/vinyl.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/PROI_PROJect/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/vinylshop.dir/source/vinyl.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vinylshop.dir/source/vinyl.cpp.o -c /mnt/d/PROI_PROJect/source/vinyl.cpp
 
 CMakeFiles/vinylshop.dir/source/vinyl.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vinylshop.dir/source/vinyl.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pkosmala/PROI/source/vinyl.cpp > CMakeFiles/vinylshop.dir/source/vinyl.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/PROI_PROJect/source/vinyl.cpp > CMakeFiles/vinylshop.dir/source/vinyl.cpp.i
 
 CMakeFiles/vinylshop.dir/source/vinyl.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vinylshop.dir/source/vinyl.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pkosmala/PROI/source/vinyl.cpp -o CMakeFiles/vinylshop.dir/source/vinyl.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/PROI_PROJect/source/vinyl.cpp -o CMakeFiles/vinylshop.dir/source/vinyl.cpp.s
 
 # Object files for target vinylshop
 vinylshop_OBJECTS = \
@@ -155,7 +155,7 @@ vinylshop: CMakeFiles/vinylshop.dir/source/shop.cpp.o
 vinylshop: CMakeFiles/vinylshop.dir/source/vinyl.cpp.o
 vinylshop: CMakeFiles/vinylshop.dir/build.make
 vinylshop: CMakeFiles/vinylshop.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pkosmala/PROI/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable vinylshop"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/d/PROI_PROJect/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable vinylshop"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vinylshop.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -168,6 +168,6 @@ CMakeFiles/vinylshop.dir/clean:
 .PHONY : CMakeFiles/vinylshop.dir/clean
 
 CMakeFiles/vinylshop.dir/depend:
-	cd /home/pkosmala/PROI && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pkosmala/PROI /home/pkosmala/PROI /home/pkosmala/PROI /home/pkosmala/PROI /home/pkosmala/PROI/CMakeFiles/vinylshop.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/d/PROI_PROJect && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/d/PROI_PROJect /mnt/d/PROI_PROJect /mnt/d/PROI_PROJect /mnt/d/PROI_PROJect /mnt/d/PROI_PROJect/CMakeFiles/vinylshop.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/vinylshop.dir/depend
 

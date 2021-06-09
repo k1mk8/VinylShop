@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
+set(CMAKE_BUILD_TYPE Debug)
 project(vinylshop)
 include_directories(include)
 file(GLOB SOURCES "source/*.cpp")

@@ -19,10 +19,10 @@ void read_Vinyls()
         {
             Vinyl vinyl(title, artist, stoi(quantity), price_category, genre);
             shop.add_vinyl(vinyl);
-            for(auto it = shop.get_sections().begin(); it != shop.get_sections().end(); it++)
+            for(int i = 0; i < shop.get_sections().size(); i++)
             {
-                if(it -> getName() == genre)
-                    it -> addVinyl(vinyl);
+                if(shop.get_sections()[i].getName() == genre)
+                    shop.get_sections()[i].addVinyl(vinyl);
             }
             title = artist = price_category = quantity = genre = "";
             counter = 0;
@@ -38,9 +38,9 @@ void read_Vinyls()
         if(counter == 1)
             artist += letter;
         if(counter == 2)
-            price_category += letter;
-        if(counter == 3)
             quantity += letter;
+        if(counter == 3)
+            price_category += letter;
         if(counter == 4)
             genre += letter;
     }
@@ -153,7 +153,7 @@ int checkInput(int range){//sprawdza czy wartość jest liczbą oraz czy jest mn
 int main()
 {
     create_Sections();
-    //read_Vinyls(); //nie działa
+    read_Vinyls(); //nie działa
     read_Sellers(); //działa, ale jakoś dziwnie (dokleja na koniec sekcje wszystkich poprzednich sprzedawców)
     cout << "Podaj czas trwania symulacji: " << endl;
     int timeLimit = checkInput(999);

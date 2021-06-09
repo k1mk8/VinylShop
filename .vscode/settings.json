@@ -3,7 +3,6 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "iosfwd": "cpp",
-        "chrono": "cpp",
-        "iostream": "cpp"
+        "string": "cpp"
     }
 }
