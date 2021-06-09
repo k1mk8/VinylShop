@@ -5,7 +5,7 @@
 
 using namespace std;
 Shop shop;
-map <string, int> M;
+map <string, int> PriceCategory;
 void read_Vinyls()
 {
     FILE* file;
@@ -102,6 +102,13 @@ void read_Sellers()
                 }
                 help += thematic_sections_str[i];
             }
+            for(int j = 0; j < shop.get_sections().size(); j++)
+            {
+                if(shop.get_sections()[j] -> getName() == help){
+                    thematic_sections.push_back(shop.get_sections()[j]);
+                    break;
+                }
+            }
             Seller* seller = new Seller(forname, name, login, password, permmission_level, thematic_sections);
             shop.add_seller(seller);
             forname = name = login = password = permmission_level = thematic_sections_str = "";
@@ -133,6 +140,11 @@ void read_Sellers()
 
 int main(int argc, char* argv[])
 {
+
+    //obsluga wejscia
+    cout << "Witamy w programie Vinylshop!\n";
+        // W wymaganiach wspomniane jest o zakazie pobierania danych w interakcji z uzytkownikiem
+        // Stąd pobieranie danych z konsoli podczas uruchamiania programu
     if(argc != 3)
     {  
         std::cout << "Blad\n";
@@ -152,9 +164,9 @@ int main(int argc, char* argv[])
     create_Sections();
     read_Vinyls();
     read_Sellers();
-    M["A"] = 50;
-    M["B"] = 100;
-    M["C"] = 150;
+    PriceCategory["A"] = 50;
+    PriceCategory["B"] = 100;
+    PriceCategory["C"] = 150;
     filebuf fb;
     fb.open ("ODP.txt",ios::app);
     string firstNames[] = {"Adam", "Bartlomiej", "Anna", "Szymon", "Natalia", "Zuzanna", "Karol", "Jakub", "Dominika", "Piotr", "Ryszard", "Aneta", "Karolina", "Wiktoria", "Marek"};
@@ -163,7 +175,12 @@ int main(int argc, char* argv[])
     string genres[] = {"Rock", "Alternative", "Indie", "Hip_hop", "Blues", "Electronic", "Jazz", "Classic", "Pop", "Reggae"};
     unsigned seed = chrono::high_resolution_clock::now().time_since_epoch().count();
     mt19937 generator(seed);
+    //
+
+    //symulacja sklepu
     for(int time = 0; time < timeLimit; time++){
+        //generowanie losowych klientow podczas trwania symulacji az do osiagniecia limutu
+        //klienci przychodzą do sklepu
         if(shop.get_clients().size() < clientLimit)
         {
             int number1 = uniform_int_distribution<int>(0, 14)(generator);
@@ -172,16 +189,21 @@ int main(int argc, char* argv[])
             int number4 = uniform_int_distribution<int>(0, 14)(generator);
             int number5;
             int number6;
+            //tworzenie list zakupow
             vector<pair<string, int> > V;
-            for(int i = 0; i < 2; i++){
+            for(int i = 0; i < uniform_int_distribution<int>(1, 3)(generator); i++){
                 number5 = uniform_int_distribution<int>(0, 309)(generator);
                 number6 = uniform_int_distribution<int>(1, 5)(generator);
                 V.push_back({shop.get_vinyls()[number5] -> get_name(), number6});
             }
+            //tworzenie obiektu klient
             Client* client = new Client(firstNames[number1], lastNames[number2], genres[number3], artists[number4], V);
             shop.add_client(client);
             //cout << client << endl;
         }
+        //
+        
+        //obsluga klientow na podstawie ich list zakupow
         vector<Client*> clients = shop.get_clients();
         for(int i = 0; i < clients.size(); i++){
             if(clients[i] -> get_shopping_list().size() == 0) continue;
@@ -192,13 +214,16 @@ int main(int argc, char* argv[])
                 string genre = shop.getVinylGenre(it.first);
                 Seller seller;
                 Vinyl* vinyl = new Vinyl();
-                for(auto q : shop.get_sellers()){
-                    for(auto k : q -> Get_thematic_sections()){
-                        if(k -> getName() == genre){
-                            q -> Set_status(false);
-                            seller = *q;
-                            vinyl = q -> getVinyl(name, genre);
+                //poszukiwanie dostepnego i kompetentnego sprzedawcy
+                for(auto sellersIt : shop.get_sellers()){
+                    for(auto sellersThematicSections : sellersIt -> Get_thematic_sections()){
+                        if(sellersThematicSections -> getName() == genre){
+                            //zmiana statusu sprzedawcy, przypisanie go
+                            sellersIt -> Set_status(false);
+                            seller = *sellersIt;
+                            vinyl = sellersIt -> getVinyl(name, genre);
                             flag = 1;
+                            //
                         }
                         if(flag == 1)
                         {
@@ -210,34 +235,29 @@ int main(int argc, char* argv[])
                         break;
                     }
                 }
+                //
+
+                //sprawdzanie dostepnosci produtkow
                 if(number <= vinyl -> get_quantity()){
+                    //zmiejszenie ilosci w sklepie
                     vinyl -> set_quantity(vinyl -> get_quantity() - number);
-                    int value;
-                    if(vinyl -> get_price_category() == "A")
-                    {
-                        value = number * M["A"];
-                    }
-                    else if(vinyl -> get_price_category() == "B")
-                    {
-                        value = number * M["B"];
-                    }
-                    else if(vinyl -> get_price_category() == "C")
-                    {
-                        value = number * M["C"];
-                    }
+                    //obliczenie ceny
+                    int value = number * PriceCategory[vinyl -> get_price_category()];
                     cout << "Klient " << clients[i] -> get_firstName() << " " << clients[i] -> get_lastName() << " kupuje " << number << " " << vinyl -> get_name() << " z kategorii cenowej: " << vinyl -> get_price_category() << " od " << seller.Get_name() << " " << seller.Get_surname() <<"\nDo zaplaty: "<< value << endl;
                     ostream os(&fb);
                     os << "Klient " << clients[i] -> get_firstName() << " " << clients[i] -> get_lastName() << " kupuje " << number << " " << vinyl -> get_name() << " z kategorii cenowej: " << vinyl -> get_price_category() << " od " << seller.Get_name() << " " << seller.Get_surname() <<"\nDo zaplaty: "<< value << endl;
-                    
                 }
                 else{
-                    cout<<"Plyta:" << vinyl -> get_name() << " bedzie dostepna w najblizszym czasie, prosimy o oczekiwanie!\n";
+                    //zwiekszenie ilosci w sklepie
+                    cout << "Klient " << clients[i] -> get_firstName() << " " << clients[i] -> get_lastName() << " zlozyl zamowienie jego ";
+                    cout<<"plyta:" << vinyl -> get_name() << " bedzie dostepna w najblizszym czasie, prosimy o oczekiwanie!\n";
                     vinyl -> set_quantity(vinyl -> get_quantity() + number);
                 }
+                //
             }
         }
         char a = '0';
-        std::cout << "Czy kontynuowac? (t/n)";
+        std::cout << "Czy kontynuowac? (t / ctrl+c)";
         while(a != 't'){
             cin >> a;
         }

@@ -1,3 +1,0 @@
-/mnt/d/PROI_PROJect/CMakeFiles/rebuild_cache.dir
-/mnt/d/PROI_PROJect/CMakeFiles/edit_cache.dir
-/mnt/d/PROI_PROJect/CMakeFiles/vinylshop.dir
