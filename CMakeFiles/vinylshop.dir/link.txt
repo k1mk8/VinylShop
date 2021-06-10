@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/vinylshop.dir/main.cpp.o CMakeFiles/vinylshop.dir/source/client.cpp.o CMakeFiles/vinylshop.dir/source/section.cpp.o CMakeFiles/vinylshop.dir/source/seller.cpp.o CMakeFiles/vinylshop.dir/source/shop.cpp.o CMakeFiles/vinylshop.dir/source/vinyl.cpp.o -o vinylshop 
+/usr/bin/c++  -g   CMakeFiles/vinylshop.dir/main.cpp.o CMakeFiles/vinylshop.dir/source/client.cpp.o CMakeFiles/vinylshop.dir/source/section.cpp.o CMakeFiles/vinylshop.dir/source/seller.cpp.o CMakeFiles/vinylshop.dir/source/shop.cpp.o CMakeFiles/vinylshop.dir/source/vinyl.cpp.o  -o vinylshop 

@@ -19,6 +19,17 @@ Shop::Shop(const Shop& S)
     list_of_vinyls = S.list_of_vinyls;
     list_of_clients = S.list_of_clients;
 }
+Shop::~Shop()
+{
+    for(auto it : list_of_sections)
+        delete it;
+    for(auto it : list_of_clients)
+        delete it;
+    for(auto it : list_of_sellers)
+        delete it;
+    for(auto it : list_of_vinyls)
+        delete it;
+}
 void Shop::set_sections(vector<Section*> l_of_sec) {list_of_sections=l_of_sec;}
 void Shop::set_sellers(vector<Seller*> l_of_sel) {list_of_sellers=l_of_sel;}
 void Shop::set_vinyls(vector<Vinyl*> l_of_vin) {list_of_vinyls=l_of_vin;}
