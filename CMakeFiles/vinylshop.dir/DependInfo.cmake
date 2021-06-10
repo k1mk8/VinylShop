@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/mnt/d/PROI_PROJect/main.cpp" "/mnt/d/PROI_PROJect/CMakeFiles/vinylshop.dir/main.cpp.o"
-  "/mnt/d/PROI_PROJect/source/client.cpp" "/mnt/d/PROI_PROJect/CMakeFiles/vinylshop.dir/source/client.cpp.o"
-  "/mnt/d/PROI_PROJect/source/section.cpp" "/mnt/d/PROI_PROJect/CMakeFiles/vinylshop.dir/source/section.cpp.o"
-  "/mnt/d/PROI_PROJect/source/seller.cpp" "/mnt/d/PROI_PROJect/CMakeFiles/vinylshop.dir/source/seller.cpp.o"
-  "/mnt/d/PROI_PROJect/source/shop.cpp" "/mnt/d/PROI_PROJect/CMakeFiles/vinylshop.dir/source/shop.cpp.o"
-  "/mnt/d/PROI_PROJect/source/vinyl.cpp" "/mnt/d/PROI_PROJect/CMakeFiles/vinylshop.dir/source/vinyl.cpp.o"
+  "/home/kasperek/VinylShop/vinylshop/main.cpp" "/home/kasperek/VinylShop/vinylshop/CMakeFiles/vinylshop.dir/main.cpp.o"
+  "/home/kasperek/VinylShop/vinylshop/source/client.cpp" "/home/kasperek/VinylShop/vinylshop/CMakeFiles/vinylshop.dir/source/client.cpp.o"
+  "/home/kasperek/VinylShop/vinylshop/source/section.cpp" "/home/kasperek/VinylShop/vinylshop/CMakeFiles/vinylshop.dir/source/section.cpp.o"
+  "/home/kasperek/VinylShop/vinylshop/source/seller.cpp" "/home/kasperek/VinylShop/vinylshop/CMakeFiles/vinylshop.dir/source/seller.cpp.o"
+  "/home/kasperek/VinylShop/vinylshop/source/shop.cpp" "/home/kasperek/VinylShop/vinylshop/CMakeFiles/vinylshop.dir/source/shop.cpp.o"
+  "/home/kasperek/VinylShop/vinylshop/source/vinyl.cpp" "/home/kasperek/VinylShop/vinylshop/CMakeFiles/vinylshop.dir/source/vinyl.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -6,49 +6,45 @@
 
 #IncludeRegexTransform: 
 
-/mnt/d/PROI_PROJect/include/client.h
-string
--
-iostream
--
-map
+/home/kasperek/VinylShop/vinylshop/include/client.h
+bits/stdc++.h
 -
 
-/mnt/d/PROI_PROJect/include/section.h
+/home/kasperek/VinylShop/vinylshop/include/section.h
 bits/stdc++.h
 -
 vinyl.h
-/mnt/d/PROI_PROJect/include/vinyl.h
+/home/kasperek/VinylShop/vinylshop/include/vinyl.h
 
-/mnt/d/PROI_PROJect/include/seller.h
+/home/kasperek/VinylShop/vinylshop/include/seller.h
 iostream
 -
 vector
 -
 section.h
-/mnt/d/PROI_PROJect/include/section.h
+/home/kasperek/VinylShop/vinylshop/include/section.h
 
-/mnt/d/PROI_PROJect/include/shop.h
+/home/kasperek/VinylShop/vinylshop/include/shop.h
 bits/stdc++.h
 -
 section.h
-/mnt/d/PROI_PROJect/include/section.h
+/home/kasperek/VinylShop/vinylshop/include/section.h
 vinyl.h
-/mnt/d/PROI_PROJect/include/vinyl.h
+/home/kasperek/VinylShop/vinylshop/include/vinyl.h
 seller.h
-/mnt/d/PROI_PROJect/include/seller.h
+/home/kasperek/VinylShop/vinylshop/include/seller.h
 client.h
-/mnt/d/PROI_PROJect/include/client.h
+/home/kasperek/VinylShop/vinylshop/include/client.h
 
-/mnt/d/PROI_PROJect/include/vinyl.h
+/home/kasperek/VinylShop/vinylshop/include/vinyl.h
 bits/stdc++.h
 -
 
-/mnt/d/PROI_PROJect/main.cpp
+/home/kasperek/VinylShop/vinylshop/main.cpp
 bits/stdc++.h
 -
 include/shop.h
-/mnt/d/PROI_PROJect/include/shop.h
+/home/kasperek/VinylShop/vinylshop/include/shop.h
 random
 -
 chrono

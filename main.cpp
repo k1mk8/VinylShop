@@ -5,7 +5,7 @@
 
 using namespace std;
 Shop shop;
-
+map <string, int> M;
 void read_Vinyls()
 {
     FILE* file;
@@ -152,6 +152,9 @@ int main(int argc, char* argv[])
     create_Sections();
     read_Vinyls();
     read_Sellers();
+    M["A"] = 50;
+    M["B"] = 100;
+    M["C"] = 150;
     filebuf fb;
     fb.open ("ODP.txt",ios::app);
     string firstNames[] = {"Adam", "Bartlomiej", "Anna", "Szymon", "Natalia", "Zuzanna", "Karol", "Jakub", "Dominika", "Piotr", "Ryszard", "Aneta", "Karolina", "Wiktoria", "Marek"};
@@ -185,6 +188,7 @@ int main(int argc, char* argv[])
             for(auto it : clients[i] -> get_shopping_list()){
                 string name = it.first;
                 int number = it.second;
+                bool flag = 0;
                 string genre = shop.getVinylGenre(it.first);
                 Seller seller;
                 Vinyl* vinyl = new Vinyl();
@@ -194,20 +198,41 @@ int main(int argc, char* argv[])
                             q -> Set_status(false);
                             seller = *q;
                             vinyl = q -> getVinyl(name, genre);
-                            goto here;
+                            flag = 1;
+                        }
+                        if(flag == 1)
+                        {
+                            break;
                         }
                     }
+                    if(flag == 1)
+                    {
+                        break;
+                    }
                 }
-                here:
                 if(number <= vinyl -> get_quantity()){
                     vinyl -> set_quantity(vinyl -> get_quantity() - number);
-                    cout << "Klient " << clients[i] -> get_firstName() << " " << clients[i] -> get_lastName() << " kupuje " << number << " " << vinyl -> get_name() << " z kategorii cenowej: " << vinyl -> get_price_category() << " od " << seller.Get_name() << " " << seller.Get_surname() << endl;
+                    int value;
+                    if(vinyl -> get_price_category() == "A")
+                    {
+                        value = number * M["A"];
+                    }
+                    else if(vinyl -> get_price_category() == "B")
+                    {
+                        value = number * M["B"];
+                    }
+                    else if(vinyl -> get_price_category() == "C")
+                    {
+                        value = number * M["C"];
+                    }
+                    cout << "Klient " << clients[i] -> get_firstName() << " " << clients[i] -> get_lastName() << " kupuje " << number << " " << vinyl -> get_name() << " z kategorii cenowej: " << vinyl -> get_price_category() << " od " << seller.Get_name() << " " << seller.Get_surname() <<"\nDo zaplaty: "<< value << endl;
                     ostream os(&fb);
-                    os << "Klient " << clients[i] -> get_firstName() << " " << clients[i] -> get_lastName() << " kupuje " << number << " " << vinyl -> get_name() << " z kategorii cenowej: " << vinyl -> get_price_category() << " od " << seller.Get_name() << " " << seller.Get_surname() << endl;
+                    os << "Klient " << clients[i] -> get_firstName() << " " << clients[i] -> get_lastName() << " kupuje " << number << " " << vinyl -> get_name() << " z kategorii cenowej: " << vinyl -> get_price_category() << " od " << seller.Get_name() << " " << seller.Get_surname() <<"\nDo zaplaty: "<< value << endl;
                     
                 }
                 else{
-                    //zamawianie
+                    cout<<"Plyta:" << vinyl -> get_name() << " bedzie dostepna w najblizszym czasie, prosimy o oczekiwanie!\n";
+                    vinyl -> set_quantity(vinyl -> get_quantity() + number);
                 }
             }
         }
