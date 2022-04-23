@@ -12,7 +12,7 @@ class Section
     vector<Vinyl*> vinyl; // plyty w danej sekcji
 
     public:
-    Section(string nameIN, vector<Vinyl> vinylIN); // konstruktor klasy
+    Section(string nameIN); // konstruktor klasy
     Section(const Section& obj); // konstruktor kopiujacy klasy
     string getName() const; // getter nazwy
     vector<Vinyl*> getVinyl() const; // getter listy z plytami

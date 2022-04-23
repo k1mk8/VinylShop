@@ -1,11 +1,12 @@
 #include "client.h"
 #include <utility>
 
-Client::Client(std::string firstName, std::string lastName, std::string favouriteGenre, std::string favouriteArtist){//konstruktor domyślny
+Client::Client(std::string firstName, std::string lastName, std::string favouriteGenre, std::string favouriteArtist, std::vector<std::pair<std::string, int> >shopping_list1){//konstruktor domyślny
     m_firstName = firstName;
     m_lastName = lastName;
     m_favouriteGenre = favouriteGenre;
     m_favouriteArtist = favouriteArtist;
+    shopping_list = shopping_list1;
 }
 
 Client::Client(const Client& c){//konstruktor kopiujący
@@ -13,6 +14,7 @@ Client::Client(const Client& c){//konstruktor kopiujący
     m_lastName = c.m_lastName;
     m_favouriteGenre = c.m_favouriteGenre;
     m_favouriteArtist = c.m_favouriteArtist;
+    shopping_list = c.shopping_list;
 }
 
 void Client::set_firstName(std::string firstName) {m_firstName = firstName;}
@@ -23,7 +25,7 @@ std::string Client::get_firstName() {return m_firstName;}
 std::string Client::get_lastName() {return m_lastName;}
 std::string Client::get_favouriteGenre() {return m_favouriteGenre;}
 std::string Client::get_favouriteArtist() {return m_favouriteArtist;}//funkcje zwracające wartości pól
-std::map<std::string, int> Client::get_shopping_list() {return shopping_list;}
+std::vector<std::pair<std::string, int> > Client::get_shopping_list() {return shopping_list;}
 void Client::print_shopping_list() {//wypisywanie zawartości koszyka
     std::cout << "Zawartosc koszyka: " << std::endl;
     for (auto it : shopping_list){
@@ -31,12 +33,15 @@ void Client::print_shopping_list() {//wypisywanie zawartości koszyka
     }
 }
 void Client::addToShoppingList(std::string name, int number){//dodawanie elementu do koszyka
-    if(shopping_list.find(name) != shopping_list.end()){//jeśli element już jest w koszyku, zwiększ ich liczbę
-        shopping_list[name] += number;
+    for(auto it : shopping_list)
+    {
+        if(it.first == name){//jeśli element już jest w koszyku, zwiększ ich liczbę
+            it.second += number;
+            return;
+        }
     }
-    else{
-        shopping_list.insert(make_pair(name, number));
-    }
+    shopping_list.push_back({name, number});
+    return;
 }
 std::ostream& operator<<(std::ostream& os, Client& c)//przeładowania operatorów
 {

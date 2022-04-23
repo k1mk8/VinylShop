@@ -9,7 +9,7 @@ map <string, int> PriceCategory;
 void read_Vinyls()
 {
     FILE* file;
-    file = fopen("Vinyls.txt", "r");
+    file = fopen("./database/Vinyls.txt", "r");
     char letter;
     int counter = 0;
     string title, artist, price_category, quantity, genre;
@@ -50,33 +50,30 @@ void read_Vinyls()
 
 void create_Sections()
 {
-    Section* Rock = new Section("Rock");
-    shop.add_section(Rock);
-    Section* Alternative = new Section("Alternative");
-    shop.add_section(Alternative);
-    Section* Indie = new Section("Indie");
-    shop.add_section(Indie);
-    Section* Hip_hop = new Section("Hip_hop");
-    shop.add_section(Hip_hop);
-    Section* Blues = new Section("Blues");
-    shop.add_section(Blues);
-    Section* Electronic = new Section("Electronic");
-    shop.add_section(Electronic);
-    Section* Jazz = new Section("Jazz");
-    shop.add_section(Jazz);
-    Section* Classic = new Section("Classic");
-    shop.add_section(Classic);
-    Section* Pop = new Section("Pop");
-    shop.add_section(Pop);
-    Section* Reggae = new Section("Reggae");
-    shop.add_section(Reggae);
+    FILE* file;
+    file = fopen("./database/Section.txt", "r");
+    char letter;
+    string genre = "";
+    while(letter != EOF)
+    {
+        letter = fgetc(file);
+        if(letter == ';')
+        {
+            Section* section = new Section(genre);
+            shop.add_section(section);
+            genre = "";
+            continue;
+        }
+        genre += letter;
+    }
+    fclose(file);
 }
 
 
 void read_Sellers()
 {
     FILE* file;
-    file = fopen("Sellers.txt", "r");
+    file = fopen("./database/Sellers.txt", "r");
     char letter;
     int counter = 0;
     bool status;
@@ -91,9 +88,9 @@ void read_Sellers()
             {
                 if(thematic_sections_str[i] == ',')
                 {
-                    for(int j = 0; j < shop.get_sections().size(); j++){
-                        if(shop.get_sections()[j] -> getName() == help){
-                            thematic_sections.push_back(shop.get_sections()[j]);
+                    for(auto it: shop.get_sections()){
+                        if(it -> getName() == help){
+                            thematic_sections.push_back(it);
                             break;
                         }
                     }
@@ -102,10 +99,9 @@ void read_Sellers()
                 }
                 help += thematic_sections_str[i];
             }
-            for(int j = 0; j < shop.get_sections().size(); j++)
-            {
-                if(shop.get_sections()[j] -> getName() == help){
-                    thematic_sections.push_back(shop.get_sections()[j]);
+            for(auto it: shop.get_sections()){
+                if(it -> getName() == help){
+                    thematic_sections.push_back(it);
                     break;
                 }
             }
