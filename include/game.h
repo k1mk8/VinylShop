@@ -13,9 +13,12 @@ public:
     Game();
     Game(string nameConcern); // konstruktor kredytu
     ~Game() = default; // destruktor
-    void starting_workers();
+    void starting_workers(); // ustawienie początkowych pracowników
     string interface(); // interface wyświetlany na ekranie
     int player_action(); // akcja gracza
+    int randomInt(int min, int max);
+    string generateRandomName();
+
 };
 
 #endif

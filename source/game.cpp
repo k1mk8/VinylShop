@@ -10,10 +10,10 @@ Game::Game(string nameConcern) : concern(make_unique<Concern>(nameConcern)) {
     starting_workers();
 }
 void Game::starting_workers(){
-    concern->add_employee("Adam", Engineer("Robotyka i automatyka"));
-    concern->add_employee("Barbara", StoreKeeper(true));
-    concern->add_employee("Cyprian", Marketer(50));
-    concern->add_employee("Diana", Worker(35.5));
+    concern->add_employee(generateRandomName(), Engineer("Robotyka i automatyka"));
+    concern->add_employee(generateRandomName(), StoreKeeper(true));
+    concern->add_employee(generateRandomName(), Marketer(50));
+    concern->add_employee(generateRandomName(), Worker(35.5));
 }
 string Game::interface(){
     cout << "Twój aktualny stan konta to:\n" << concern->get_accountBalance() << "\n\n";
@@ -42,7 +42,7 @@ int Game::player_action(){
         cout << "Twoja aktualna wartość firmy to:\n" << concern->get_concernValue() << "\n\n";
         return 0;
     }
-    else if(concern->get_concernValue() >= concern->get_expectedConcernValue()){
+    else if(concern->get_concernValue() - concern->credits_rate() - concern->workers_salary() >= concern->get_expectedConcernValue()){
         cout << "Twój aktualny stan konta to:\n" << concern->get_accountBalance() << "\n\n";
         cout << "Twoja aktualna wartość firmy to:\n" << concern->get_concernValue() << "\n\n";
         return 2;
@@ -53,12 +53,19 @@ int Game::player_action(){
         concern->calculate_at_month_end();
     }
     else if(playerInput == "lp"){concern->display_employee();}
-    else if(playerInput == "zinz"){concern->add_employee("Adam", Engineer("Robotyka i automatyka")); concern->modify_number_of_employees("engineer");}
-    else if(playerInput == "zmag"){concern->add_employee("Barbara", StoreKeeper(true));concern->modify_number_of_employees("storekeeper");}
-    else if(playerInput == "zmkt"){concern->add_employee("Cyprian", Marketer(50));concern->modify_number_of_employees("marketer");}
-    else if(playerInput == "zrob"){concern->add_employee("Diana", Worker(35.5));concern->modify_number_of_employees("worker");}
+    else if(playerInput == "zinz"){concern->add_employee(generateRandomName(), Engineer("Robotyka i automatyka")); concern->modify_number_of_employees("engineer");}
+    else if(playerInput == "zmag"){concern->add_employee(generateRandomName(), StoreKeeper(true));concern->modify_number_of_employees("storekeeper");}
+    else if(playerInput == "zmkt"){concern->add_employee(generateRandomName(), Marketer(50));concern->modify_number_of_employees("marketer");}
+    else if(playerInput == "zrob"){concern->add_employee(generateRandomName(), Worker(35.5));concern->modify_number_of_employees("worker");}
     else if(playerInput == "kred"){concern->take_loan();}
     return 1;
+}
+
+int Game::randomInt(int min, int max){return min + rand() % (max - min + 1);}
+string Game::generateRandomName(){
+    vector<string> availableNames = {"Anna", "Bob", "Catherine", "David", "Emma", "Frank", "Grace", "Henry", "Kristopher", "Lena", "Marie"};
+    int index = randomInt(0, availableNames.size() - 1);
+    return availableNames[index];
 }
 
 

@@ -14,7 +14,7 @@ private:
     const double CI = 1.5; // stała wydajności inżyniera
 public:
     Engineer();
-    Engineer(string name1, Engineer engineer);
+    Engineer(string name1, Engineer engineer); // konstruktor
     Engineer(string faculty1); // konstruktor
     string get_faculty(); // getter imienia
     const double get_CI(); // zwraca wydajność inżyniera

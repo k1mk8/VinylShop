@@ -12,14 +12,14 @@ Concern::Concern(string name1)
 }
 
 void Concern::apply_constants(){
-    numberOfStaff["engineer"] = 50; 
-    numberOfStaff["marketer"] = 50; 
-    numberOfStaff["storekeeper"] = 50;
-    numberOfStaff["worker"] = 50; 
-    staffProductivity["CI"] = 30;
-    staffProductivity["CMag"] = 30; 
-    staffProductivity["CMkt"] = 30; 
-    staffProductivity["CR"] = 30; 
+    numberOfStaff["engineer"] = 1; 
+    numberOfStaff["marketer"] = 1; 
+    numberOfStaff["storekeeper"] = 1;
+    numberOfStaff["worker"] = 1; 
+    staffProductivity["CI"] = 70;
+    staffProductivity["CMag"] = 70; 
+    staffProductivity["CMkt"] = 70; 
+    staffProductivity["CR"] = 70; 
 }
 void Concern::display_employee() const{
     for (const auto& employee : employees) {
@@ -73,11 +73,12 @@ void Concern::take_loan(){
         cout << "Niepoprawny format liczby całkowitej. Spróbuj ponownie." << endl;
     }
     if(loanDuration > maxTimeOfCredit){
-        cout<<"Maksymalna długość czasu kredytu to: " << maxTimeOfCredit << "Spróbuj ponownie\n"<<endl;
+        cout<<"Maksymalna długość czasu kredytu to: " << maxTimeOfCredit << " Spróbuj ponownie\n";
         return;
     }
     else if(loanAmount > maxMultipleOfConcernValue * concernValue){
-
+        cout<<"Maksymalna kwota kredytu, który może aktualnie wziąć to: " << maxMultipleOfConcernValue * concernValue << " Spróbuj Ponownie\n";
+        return;
     }
     Credit credit(loanAmount, loanDuration);
     auto creditArray = make_unique<Credit[]>(1);
@@ -94,11 +95,11 @@ void Concern::calculate_at_month_end(){
     double revenue = income - rates - salaries;
     set_accountBalance(get_accountBalance() + revenue);
     if(previousConcernValue.size() < monthsOfConcernValue){
-        previousConcernValue.push(income);
+        previousConcernValue.push(revenue);
     }
     else {
         previousConcernValue.pop();
-        previousConcernValue.push(income);
+        previousConcernValue.push(revenue);
     }
     calculate_concernValue();
 }

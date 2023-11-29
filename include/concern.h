@@ -18,16 +18,16 @@ private:
     string name; // nazwa firmy
     double accountBalance = 10000.0; // stan konta
     vector<unique_ptr<Credit[]> > credits; // kredyty firmy
-    using work = variant<unique_ptr<Engineer>, unique_ptr<Marketer>, unique_ptr<StoreKeeper>, unique_ptr<Worker> >;
-    const int monthsOfConcernValue = 6;
-    vector<work> employees;
-    queue <double> previousConcernValue;
-    const int maxTimeOfCredit = 12;
-    const double maxMultipleOfConcernValue = 3.0;
-    double concernValue = 0.0;
-    double expectedConcernValue = 100000;
-    map <string, int> numberOfStaff;
-    map <string, double> staffProductivity;
+    using work = variant<unique_ptr<Engineer>, unique_ptr<Marketer>, unique_ptr<StoreKeeper>, unique_ptr<Worker> >; // jeden z pracowników
+    const int monthsOfConcernValue = 6; // liczby miesięcy, z której liczona jest wartość koncernu
+    vector<work> employees; // vector pracowników
+    queue <double> previousConcernValue; // kolejka przetrzymująca poprzednie wartości firmy
+    const int maxTimeOfCredit = 12; // maksymalna długość kredytu
+    const double maxMultipleOfConcernValue = 3.0; // maksymalna wartość kredytu w stosunku do wartości firmy
+    double concernValue = 0.0; // wartość firmy
+    double expectedConcernValue = 100000; // oczekiwana wartość firmy do wygranej
+    map <string, int> numberOfStaff; // licznik poszczególnych typów pracowników
+    map <string, double> staffProductivity; // mapa z przyporządkowaną produktywnością pracowników
 public:
     Concern();
     Concern(string name1); // konstruktor firmy
@@ -45,8 +45,8 @@ public:
     void calculate_at_month_end(); // obliczenia na koniec tury
     double workers_salary(); // obliczenie wynagrodzenia do zapłacenia pracownikom
     double credits_rate(); // obliczenie miesięcznych rat kredytu
-    double calculate_income();
-    void calculate_concernValue();
+    double calculate_income(); // obliczanie przychodu
+    void calculate_concernValue(); // obliczanie wartości firmy
 };
 
 #endif
